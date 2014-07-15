@@ -108,7 +108,8 @@ class Client_Html_Catalog_Filter_Default
 		$view = $this->getView();
 
 		$html = null;
-		$key = 'catalog:' . $this->_getParamHash( array( 'f' ), $uid ) . ':filter-body';
+		$config = $context->getConfig()->get( 'client/html/catalog/filter', array() );
+		$key = $this->_getParamHash( array( 'f' ), $uid . ':catalog:filter-body', $config );
 
 		if( ( $html = $cache->get( $key ) ) === null )
 		{
@@ -192,7 +193,8 @@ class Client_Html_Catalog_Filter_Default
 		$view = $this->getView();
 
 		$html = null;
-		$key = 'catalog:' . $this->_getParamHash( array( 'f' ), $uid ) . ':filter-header';
+		$config = $context->getConfig()->get( 'client/html/catalog/filter', array() );
+		$key = $this->_getParamHash( array( 'f' ), $uid . ':catalog:filter-header', $config );
 
 		if( ( $html = $cache->get( $key ) ) === null )
 		{

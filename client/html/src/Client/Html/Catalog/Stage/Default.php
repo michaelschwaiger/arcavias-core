@@ -95,7 +95,8 @@ class Client_Html_Catalog_Stage_Default
 		$view = $this->getView();
 
 		$html = null;
-		$key = 'catalog:' . $this->_getParamHash( array( 'f' ), $uid ) . ':stage-body';
+		$config = $context->getConfig()->get( 'client/html/catalog/stage', array() );
+		$key = $this->_getParamHash( array( 'f' ), $uid . ':catalog:stage-body', $config );
 
 		if( ( $html = $cache->get( $key ) ) === null )
 		{
@@ -180,7 +181,8 @@ class Client_Html_Catalog_Stage_Default
 		$view = $this->getView();
 
 		$html = null;
-		$key = 'catalog:' . $this->_getParamHash( array( 'f' ), $uid ) . ':stage-header';
+		$config = $context->getConfig()->get( 'client/html/catalog/stage', array() );
+		$key = $this->_getParamHash( array( 'f' ), $uid . ':catalog:stage-header', $config );
 
 		if( ( $html = $cache->get( $key ) ) === null )
 		{
